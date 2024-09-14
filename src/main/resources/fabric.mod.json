@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "lasertag",
+	"version": "${version}",
+	"name": "Laser Tag",
+	"description": "A mod adding Laser tag weapons to Minecraft!",
+	"authors": [
+		"Craemon"
+	],
+	"contact": {
+		"homepage": "https://craemon.com",
+		"sources": "https://github.com/craemon"
+	},
+	"license": "ARR",
+	"icon": "assets/lasertag/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.craemon.lasertag.LaserTag"
+		],
+		"fabric-datagen": [
+			"com.craemon.lasertag.LaserTagDataGenerator"
+		],
+		"client": [
+			"com.craemon.lasertag.LaserTagModClient"
+		]
+	},
+	"mixins": [
+		"lasertag.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
