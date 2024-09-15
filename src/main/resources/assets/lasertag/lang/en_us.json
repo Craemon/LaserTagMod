@@ -1,8 +1,5 @@
 {
   "itemgroup.lasertag": "Laser tag",
 
-  "item.lasertag.laserblaster": "Laser Blaster",
-
-  "sounds.lasertag.laserprojectile_shoot": "Laser being shot",
-  "sounds.lasertag.laserprojectile_hit": "Laser hit"
+  "item.lasertag.laserblaster": "Laser Blaster"
 }
