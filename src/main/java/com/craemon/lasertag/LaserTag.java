@@ -1,7 +1,9 @@
 package com.craemon.lasertag;
 
+import com.craemon.lasertag.entity.ModEntities;
 import com.craemon.lasertag.item.ModItemGroups;
 import com.craemon.lasertag.item.ModItems;
+import com.craemon.lasertag.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -15,5 +17,7 @@ public class LaserTag implements ModInitializer{
     public void onInitialize() {
         ModItemGroups.registerItemGroups();
         ModItems.registerModItems();
+        ModEntities.registerModEntities();
+        ModSounds.registerSounds();
     }
 }

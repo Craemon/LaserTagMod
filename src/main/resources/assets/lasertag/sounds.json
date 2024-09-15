@@ -1,0 +1,14 @@
+{
+  "laserprojectile_shoot": {
+    "subtitle": "sounds.lasertag.laserprojectile_shoot",
+    "sounds": [
+      "lasertag:laser_shoot"
+    ]
+  },
+  "laserprojectile_hit": {
+    "subtitle": "sounds.lasertag.laserprojectile_shoot",
+    "sounds": [
+      "lasertag:laser_shoot"
+    ]
+  }
+}
