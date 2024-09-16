@@ -1,17 +1,37 @@
 package com.craemon.lasertag.item.custom;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class LaserBlasterItem extends Item {
+import java.util.function.Predicate;
+
+public class LaserBlasterItem extends RangedWeaponItem {
     public LaserBlasterItem(Settings settings) {
         super(settings.maxCount(1));
+    }
+
+    @Override
+    public Predicate<ItemStack> getProjectiles() {
+        return null;
+    }
+
+    @Override
+    public int getRange() {
+        return 0;
+    }
+
+    @Override
+    protected void shoot(LivingEntity shooter, ProjectileEntity projectile, int index, float speed, float divergence, float yaw, @Nullable LivingEntity target) {
+
     }
 
     @Override
