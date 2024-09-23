@@ -14,6 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Predicate;
 
+
 public class LaserBlasterItem extends RangedWeaponItem {
     public LaserBlasterItem(Settings settings) {
         super(settings.maxCount(1));
@@ -33,6 +34,7 @@ public class LaserBlasterItem extends RangedWeaponItem {
     protected void shoot(LivingEntity shooter, ProjectileEntity projectile, int index, float speed, float divergence, float yaw, @Nullable LivingEntity target) {
 
     }
+
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
