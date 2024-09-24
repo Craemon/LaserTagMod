@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 
 public class LaserBlastRenderer extends ProjectileEntityRenderer<LaserBlastEntity> {
     public LaserBlastRenderer(EntityRendererFactory.Context context) {
-        super(context, new LaserBlastModel(context));
+        super(context);
     }
 
     @Override

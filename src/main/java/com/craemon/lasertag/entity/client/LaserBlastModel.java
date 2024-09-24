@@ -3,13 +3,14 @@ package com.craemon.lasertag.entity.client;
 import com.craemon.lasertag.entity.custom.LaserBlastEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class LaserBlastModel extends SinglePartEntityModel<LaserBlastEntity> {
     private final ModelPart bb_main;
-    public LaserBlastModel(ModelPart root) {
-        this.bb_main = root.getChild("bb_main");
+    public LaserBlastModel(EntityRendererFactory.Context root) {
+        this.bb_main = root.getPart(null);
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
