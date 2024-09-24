@@ -12,6 +12,6 @@ public class LaserBlastRenderer extends ProjectileEntityRenderer<LaserBlastEntit
 
     @Override
     public Identifier getTexture(LaserBlastEntity entity) {
-        return null;
+        return getTexture(entity);
     }
 }
