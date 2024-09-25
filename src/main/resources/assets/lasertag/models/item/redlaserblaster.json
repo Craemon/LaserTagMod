@@ -2,8 +2,8 @@
 	"credit": "Made by Craemon",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "lasertag:item/laserblaster",
-		"particle": "lasertag:item/laserblaster"
+		"0": "lasertag:item/red_laserblaster",
+		"particle": "lasertag:item/red_laserblaster"
 	},
 	"elements": [
 		{

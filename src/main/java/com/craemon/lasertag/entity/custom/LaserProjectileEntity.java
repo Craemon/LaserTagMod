@@ -4,9 +4,7 @@ import com.craemon.lasertag.entity.ModEntities;
 import com.craemon.lasertag.item.ModItems;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -16,7 +14,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -24,16 +21,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class MagicProjectileEntity extends PersistentProjectileEntity {
-    private static final TrackedData<Boolean> HIT = DataTracker.registerData(MagicProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+public class LaserProjectileEntity extends PersistentProjectileEntity {
+    private static final TrackedData<Boolean> HIT = DataTracker.registerData(LaserProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
     private int counter = 0;
 
-    public MagicProjectileEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
+    public LaserProjectileEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public MagicProjectileEntity(World world, PlayerEntity player) {
-        super(ModEntities.MAGIC_PROJECTILE, world);
+    public LaserProjectileEntity(World world, PlayerEntity player) {
+        super(ModEntities.LASER_PROJECTILE, world);
         setOwner(player);
         BlockPos blockpos = player.getBlockPos();
         double d0 = (double)blockpos.getX() + 0.5D;
@@ -93,11 +91,11 @@ public class MagicProjectileEntity extends PersistentProjectileEntity {
         }
 
         LivingEntity livingentity = owner instanceof LivingEntity ? (LivingEntity)owner : null;
-        float damage = 2f;
+        float damage = 1000f;
         boolean hurt = hitEntity.damage(this.getDamageSources().mobProjectile(this, livingentity), damage);
         if (hurt) {
             if(hitEntity instanceof LivingEntity livingHitEntity) {
-                livingHitEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), owner);
+                livingHitEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100, 1), owner);
             }
         }
     }
@@ -143,6 +141,7 @@ public class MagicProjectileEntity extends PersistentProjectileEntity {
     public boolean hasNoGravity() {
         return true;
     }
+
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);

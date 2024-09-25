@@ -5,6 +5,6 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
 public class ModModelLayers {
-    public static final EntityModelLayer MAGIC_PROJECTILE =
-            new EntityModelLayer(Identifier.of(LaserTag.MOD_ID, "magic_projectile"), "main");
+    public static final EntityModelLayer LASER_PROJECTILE =
+            new EntityModelLayer(Identifier.of(LaserTag.MOD_ID, "laser_projectile"), "main");
 }

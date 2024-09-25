@@ -6,10 +6,10 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 
-public class MagicProjectileModel extends EntityModel<Entity> {
+public class LaserProjectileModel extends EntityModel<Entity> {
     private final ModelPart bb_main;
 
-    public MagicProjectileModel(ModelPart root) {
+    public LaserProjectileModel(ModelPart root) {
         this.bb_main = root.getChild("bb_main");
     }
 

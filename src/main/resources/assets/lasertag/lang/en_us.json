@@ -1,5 +1,8 @@
 {
   "itemgroup.lasertag": "Laser tag",
 
-  "item.lasertag.laserblaster": "Laser Blaster"
+  "item.lasertag.bluelaserblaster": "Blue Laser Blaster",
+  "item.lasertag.greenlaserblaster": "Green Laser Blaster",
+  "item.lasertag.purplelaserblaster": "Purple Laser Blaster",
+  "item.lasertag.redlaserblaster": "Red Laser Blaster"
 }
