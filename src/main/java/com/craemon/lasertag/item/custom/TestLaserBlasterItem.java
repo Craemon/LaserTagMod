@@ -14,12 +14,12 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.world.World;
 
-public class LaserBlasterItem extends Item {
+public class TestLaserBlasterItem extends Item {
 
     float damage = 1000f;
     double range = 10000;
 
-    public LaserBlasterItem(Settings settings) {
+    public TestLaserBlasterItem(Settings settings) {
         super(settings.maxCount(1));
     }
 
