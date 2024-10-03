@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -32,7 +33,8 @@ public class RaycastHelper {
     ));
 
     public static void spawnParticleTrail(World world, Vec3d startPos, Vec3d endPos, double range) {
-        if (world.isClient()) {
+        // Only proceed if we're on the server side
+        if (!world.isClient()) {
             // Offset distance for the trail
             double offsetDistance = 0.5; // Adjust this value for how far out you want the particles to spawn
 
@@ -53,13 +55,17 @@ public class RaycastHelper {
             // Number of particles to spawn based on distance
             int particlesCount = (int) (distance * 10); // Adjust for desired density of particles
 
-            // Loop to spawn particles along the path
+            // Spawn particles along the ray on the server
             for (int i = 0; i <= particlesCount; i++) {
-                // Interpolated position along the ray path
                 Vec3d particlePos = offsetStartPos.add(direction.multiply(i * (distance / particlesCount)));
 
-                // Spawn particle at the interpolated position
-                world.addParticle(ParticleTypes.END_ROD, particlePos.x, particlePos.y, particlePos.z, 0, 0, 0);
+                // Make sure world is an instance of ServerWorld before casting
+                if (world instanceof ServerWorld) {
+                    // Spawn the particles server-side, so they are visible to all players
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD,
+                            particlePos.x, particlePos.y, particlePos.z,
+                            1, 0, 0, 0, 0);
+                }
             }
         }
     }
@@ -95,13 +101,12 @@ public class RaycastHelper {
                 (entityHitResult.getPos().squaredDistanceTo(startPos) < blockHitResult.getPos().squaredDistanceTo(startPos) ? entityHitResult : blockHitResult) :
                 (entityHitResult != null) ? entityHitResult : blockHitResult;
 
-        // Even if there's no hit, spawn the particle trail along the ray path
-        Vec3d finalEndPos = (closestHit != null) ? closestHit.getPos() : endPos; // If no hit, use endPos
+        // Particle trail
+        Vec3d finalEndPos = (closestHit != null) ? closestHit.getPos() : endPos;
         spawnParticleTrail(world, startPos, finalEndPos, range);
 
         return closestHit;
     }
-
 }
 
 
