@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "lasertag:block/boost_pad_top",
+    "front": "lasertag:block/boost_pad_side",
+    "side": "lasertag:block/boost_pad_side"
+  }
+}

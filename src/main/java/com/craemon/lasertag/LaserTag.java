@@ -1,5 +1,6 @@
 package com.craemon.lasertag;
 
+import com.craemon.lasertag.block.ModBlocks;
 import com.craemon.lasertag.entity.ModEntities;
 import com.craemon.lasertag.item.ModItemGroups;
 import com.craemon.lasertag.item.ModItems;
@@ -14,6 +15,7 @@ public class LaserTag implements ModInitializer{
 
     @Override
     public void onInitialize() {
+        ModBlocks.registerModBlocks();
         ModItemGroups.registerItemGroups();
         ModItems.registerModItems();
         ModEntities.registerEntities();
